@@ -1,0 +1,32 @@
+# Claude Code
+.claude/
+CLAUDE.md
+
+# OpenTofu / Terraform
+terraform/.terraform/
+terraform/.terraform.lock.hcl
+terraform/terraform.tfstate
+terraform/terraform.tfstate.backup
+*.tfvars
+!*.tfvars.example
+
+# Lambda build artifacts
+lambda/package/
+lambda/function.zip
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+.venv/
+venv/
+
+# macOS
+.DS_Store
+
+# Editor
+*.swp
+*.swo
+*~
+.idea/
+.vscode/

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sample Page - Markdown for Agents</title>
+</head>
+<body>
+    <h1>Welcome to Markdown for Agents</h1>
+    <p>This is a sample page to test HTML-to-markdown conversion via AWS CloudFront.</p>
+
+    <h2>How It Works</h2>
+    <p>When an AI agent sends a request with <code>Accept: text/markdown</code>, the CDN automatically converts HTML to markdown on the fly.</p>
+
+    <h3>Features</h3>
+    <ul>
+        <li>Automatic HTML to markdown conversion</li>
+        <li>Cache-aware: converted markdown is cached separately from HTML</li>
+        <li>Token count estimation via <code>x-markdown-tokens</code> header</li>
+        <li>Fallback to HTML if conversion fails</li>
+    </ul>
+
+    <h3>Supported Elements</h3>
+    <ol>
+        <li>Headings (h1-h6)</li>
+        <li>Paragraphs and inline formatting</li>
+        <li>Ordered and unordered lists</li>
+        <li>Links and images</li>
+        <li>Code blocks and inline code</li>
+        <li>Tables</li>
+    </ol>
+
+    <h2>Example Code</h2>
+    <pre><code>curl -H "Accept: text/markdown" https://example.com/page.html</code></pre>
+
+    <h2>Architecture Overview</h2>
+    <p>The system uses a <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Introduction.html">CloudFront distribution</a> with a viewer-request function that detects the <strong>Accept</strong> header and routes markdown requests to a Lambda function.</p>
+
+    <h2>Performance Comparison</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Metric</th>
+                <th>HTML</th>
+                <th>Markdown</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Response Size</td>
+                <td>2.4 KB</td>
+                <td>1.1 KB</td>
+            </tr>
+            <tr>
+                <td>Token Count</td>
+                <td>~600</td>
+                <td>~275</td>
+            </tr>
+            <tr>
+                <td>Parse Complexity</td>
+                <td>High</td>
+                <td>Low</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h2>Links</h2>
+    <p>Learn more about this project:</p>
+    <ul>
+        <li><a href="https://github.com/example/accept-markdown">GitHub Repository</a></li>
+        <li><a href="https://docs.aws.amazon.com/lambda/latest/dg/welcome.html">AWS Lambda Documentation</a></li>
+        <li><a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Introduction.html">CloudFront Developer Guide</a></li>
+    </ul>
+
+    <footer>
+        <p><em>Built with AWS CloudFront, Lambda, and S3.</em></p>
+    </footer>
+</body>
+</html>
