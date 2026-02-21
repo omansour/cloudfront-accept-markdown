@@ -4,6 +4,12 @@ CloudFront-based content negotiation — returns markdown when agents send `Acce
 
 > **Note:** This is a demo/educational project — not production-ready. See [Educational notice](#educational-notice).
 
+## Why
+
+AI agents browse the web, but HTML is a costly format for them: it's full of tags, scripts, and layout noise that inflate token counts without adding meaning. By serving markdown instead, we drastically reduce the number of tokens the agent needs to parse and give it a cleaner, more structured input — leading to better comprehension and lower costs.
+
+This project uses standard HTTP content negotiation: when a client sends `Accept: text/markdown`, the CDN converts HTML to markdown on the fly. Regular browsers still get HTML as usual — no changes needed on the origin.
+
 ![Demo screenshot](image.png)
 
 ## How it works
